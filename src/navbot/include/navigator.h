@@ -43,24 +43,27 @@ class BotController{
         // Velocity variables
         double linvel_x, ang_vel; 
 
-        // Adjustment variable
-        //bool isPoseAdjusted;
-
     public:
         BotController(ros::NodeHandle &nh, std::deque<int>* command, std::deque<int>* feedback);
         void init(const nav_msgs::OdometryConstPtr& poseMsg);
-        void aimForward(double dist);
-        void stop();
+
+	    // Movement functions
         void movePosX();
         void movePosY();
         void moveNegX();
         void moveNegY();
+        void stop();
+        
+	    // Turning functions
         void turnNtoW();
         void turnWtoS();
         void turnStoE();
         void turnEtoN();
+	    // Adjust pose of bot
         void adjustPose();
+	    // Get current pose
         void getcurrentPose(const nav_msgs::OdometryConstPtr& poseMsg);
+
         void callback(const nav_msgs::OdometryConstPtr& poseMsg);
 };
 

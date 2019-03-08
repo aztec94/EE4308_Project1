@@ -22,7 +22,6 @@
 #include <math.h>
 #include <tr1/tuple> // if gcc > 4.7 need to use #include <tuple> // std::tuple, std::make_tuple, std::tie
 
-//#include <queue> 
 #include <deque> 
 
 #define	MAP_SIZE 9
@@ -68,7 +67,6 @@ class Map {
     // Movement 
     void insertCommandTurn(int command);
     void insertCommandMoveForward(int command);
-    void testdeque();
     // Check cell openings and validity
     bool isValid(int i, int j);
     bool isOpenNorth(int i, int j);
@@ -81,9 +79,12 @@ class Map {
     bool getShortestPath(int src, int dest, int pred[], int dist[]);
     // Give commands for bot to follow shortest path
     void setPath(int src, int dest);
+    // Check if bot has reached nearest unexplored cell
     void hasReachedTargetCell();
     // Check if bot has reached goal
     void hasReachedGoalCell();
+    // Unit test: Code driver
+    void testdeque();
 };
 
 

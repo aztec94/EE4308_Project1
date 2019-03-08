@@ -18,9 +18,6 @@ int main(int argc, char** argv)
   ros::NodeHandle mp;
   ros::NodeHandle nv;
 
-  //command.push(10);
-  //feedback.push(10);
-
   Map m(mp, &command, &feedback);
   BotController bc(nv, &command, &feedback);
 

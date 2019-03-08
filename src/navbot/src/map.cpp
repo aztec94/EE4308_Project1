@@ -28,7 +28,7 @@ Map::Map(ros::NodeHandle &nh, std::deque<int>* command, std::deque<int>* feedbac
   cmd_queue = command;
   fb_queue = feedback;
   init();
-  //testdeque();
+  //testdeque(); // Unit test code
 }
 
 void Map::mapcallback(const sensor_msgs::ImageConstPtr& depthmsg) {
@@ -43,9 +43,6 @@ void Map::mapcallback(const sensor_msgs::ImageConstPtr& depthmsg) {
       ROS_ERROR("cv_bridge exception: %s", e.what());
       return;
   }
-
-  // To get the depth at the optical centre (320,240)px
-  //std::cout << " depth at centre " << cv_ptr->image.at<float>( 320,240 ) << std::endl; 
 
   depth_val = cv_ptr->image.at<float>(320,240);
 
@@ -321,7 +318,7 @@ bool Map::isOpenWest(int i, int j) {
 
 void Map::updateCell(float depth) {
   //cell curCell = map[curY][curX];
-  //std::cout << "Number of edges explored " << map[curY][curX].edges_explored << "\n";
+  //std::cout << "Number of edges explored " << map[curY][curX].edges_explored << "\n"; // DEBUG
   std::cout << "current position " << curPos << "\n";
   if(map[curY][curX].edges_explored < 4) {
 
@@ -677,7 +674,7 @@ void Map::updateCurPos() {
   }
 }
 
-
+// Unit test code
 void Map::testdeque() {
   cmd_queue->push_back(5);
   cmd_queue->push_back(5);

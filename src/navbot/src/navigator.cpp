@@ -56,14 +56,6 @@ void BotController::init(const nav_msgs::OdometryConstPtr& poseMsg) {
     }
 }
 
-void BotController::aimForward(double dist) {
-    if (dist < 0) {
-        std::cout<< "Unable to set negative distance\n";
-        return;
-    }
-    target_x = dist;
-}
-
 void BotController::stop() {
     //aimForward(0.0);
     linvel_x = 0.0;
@@ -372,7 +364,7 @@ void BotController::callback(const nav_msgs::OdometryConstPtr& poseMsg){
 }
 
 /*
-// Code driver
+// Unit Test: Code driver
 int main(int argc, char** argv){
     ros::init(argc, argv, "navigator");
     ros::NodeHandle nh;
