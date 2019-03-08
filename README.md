@@ -4,7 +4,7 @@ Instructions for use
 
 1. Navigate to top of workspace and run "catkin_make".
 2. Open a terminal window, run "./start.sh". 
-3. Open a new terminal window, run "source ./devel/setup.bash" and then "roslaunch navbot main".
+3. Open a new terminal window, run "source ./devel/setup.bash" and then "rosrun navbot main".
 
 File Description
 
